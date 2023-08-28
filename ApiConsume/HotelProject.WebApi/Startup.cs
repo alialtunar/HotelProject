@@ -1,3 +1,8 @@
+using HotelProject.BusinessLayer.Abstract;
+using HotelProject.BusinessLayer.Concrete;
+using HotelProject.DataAccessLayer.Abstract;
+using HotelProject.DataAccessLayer.Concrete;
+using HotelProject.DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -5,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +30,28 @@ namespace HotelProject.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<Context>();
+
+            services.AddScoped<IStaffDal, EfStaffDal>();
+            services.AddScoped<IStaffService, StaffManager>();
+
+            services.AddScoped<IServicesDal, EfServiceDal>();
+            services.AddScoped<IServiceService, ServiceManager>();
+
+            services.AddScoped<ISubscribeDal, EfSubscribeDal>();
+            services.AddScoped<ISubscribeService, SubscribeManager>();
+
+            services.AddScoped<ITestimonialDal, EfTestimonialDal>();
+            services.AddScoped<ITestimonialService, TestimonialManager>();
+
+            services.AddScoped<IRoomDal, EfRoomDal>();
+            services.AddScoped<IRoomService, RoomManager>();
+
             services.AddControllers();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Hotel-Project", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,6 +65,12 @@ namespace HotelProject.WebApi
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Hotel Project AP");
+            });
 
             app.UseEndpoints(endpoints =>
             {
