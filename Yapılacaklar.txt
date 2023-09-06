@@ -1,3 +1,4 @@
-Swagger ve Apinin Kodlanmasý
--Temayý Ekle
--Register ve Login Ekle
+-Onay Bekliyor
+-Onaylandý
+-Ýptal edildi
+-Bekletiliyor
