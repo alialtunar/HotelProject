@@ -37,7 +37,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> ApprovedRezervation(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(approvedRezervationDto);
+            var jsonData = JsonConvert.SerializeObject(id);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
             var responseMessage = await client.PutAsync($"http://localhost:5000/api/Booking/aaaaa", stringContent);
 
