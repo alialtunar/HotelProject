@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace HotelProject.WebUI.Dtos.SendMessageDto
 {
-    public class CreateSendMessageDto
+    public class ResultSendboxDto
     {
- 
+        public int SendMessageId { get; set; }
         public string RecevierName { get; set; }
         public string RecevierMail { get; set; }
 

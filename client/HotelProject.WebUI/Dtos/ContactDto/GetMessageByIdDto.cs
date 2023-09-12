@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HotelProject.WebUI.Dtos.SendMessageDto
+namespace HotelProject.WebUI.Dtos.ContactDto
 {
-    public class CreateSendMessageDto
+    public class GetMessageByIdDto
     {
- 
+        public int SendMessageId { get; set; }
         public string RecevierName { get; set; }
         public string RecevierMail { get; set; }
 

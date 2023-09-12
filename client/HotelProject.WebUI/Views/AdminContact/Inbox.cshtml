@@ -29,7 +29,7 @@
 
 
                             <div class="message">
-                                <a href="email-read.html">
+                                <a href="/AdminContact/MessageDetailsByInbox/@item.ContactId">
                                     <div class="col-mail col-mail-1">
                                         <div class="email-checkbox">
                                             <input type="checkbox" id="chk2">
@@ -38,7 +38,7 @@
                                     </div>
                                     <div class="col-mail col-mail-2">
                                         <div class="subject">@item.Message.Substring(0,100) ...</div>
-                                        <div class="date">11:49 am</div>
+                                        <div class="date">@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</div>
                                     </div>
                                 </a>
                             </div>
