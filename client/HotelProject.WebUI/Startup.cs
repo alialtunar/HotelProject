@@ -48,7 +48,7 @@ namespace HotelProject.WebUI
             services.ConfigureApplicationCookie(options =>
             {
                 options.Cookie.HttpOnly = true;
-                options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
                 options.LoginPath = "/Login/Index/";
             });
 
