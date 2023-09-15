@@ -9,7 +9,7 @@ namespace HotelProject.BusinessLayer.Concrete
 {
     public class WorkLocationManager : IWorkLocationService
     {
-        private readonly IWorkLocationDal _workLocationDal
+        private readonly IWorkLocationDal _workLocationDal;
 public WorkLocationManager(IWorkLocationDal workLocationDal)
         {
             _workLocationDal = workLocationDal;
