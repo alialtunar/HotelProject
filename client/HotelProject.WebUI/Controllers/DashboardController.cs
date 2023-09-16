@@ -3,11 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-namespace HotelProject.WebUI.ViewComponents.Default
+
+namespace HotelProject.WebUI.Controllers
 {
-    public class _TrailerPartial : ViewComponent
+    public class DashboardController : Controller
     {
-        public IViewComponentResult Invoke()
+        public IActionResult Index()
         {
             return View();
         }
